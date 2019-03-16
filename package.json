@@ -5,9 +5,9 @@
   "engines": {
     "node": "10.x"
   },
-  "main": "index.js",
+  "main": "muse_skill.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node muse_skill.js",
     "test": "node test.js"
   },
   "dependencies": {
