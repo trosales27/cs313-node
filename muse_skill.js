@@ -18,7 +18,7 @@ app.get("/", function(req, res) {
 app.get("/muse_skill", function(req, res) {
     console.log("Received a request for muse_skill");
 
-    res.render("muse_skill");
+    res.render("pages/muse_skill");
 });
 
 app.listen(port, function() {
