@@ -10,7 +10,8 @@ ul {
     overflow: hidden;
     background-color: #333;
     /* Fixed navbar */
-    position: fixed;
+    /* position: fixed; */
+    position: 
     top: 10%;
     width: 100%;
   }
