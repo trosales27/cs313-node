@@ -1,7 +1,30 @@
 var express = require("express");
+require('dotenv').config();
 
 var app = express();
 const port = process.env.PORT || 5000;
+
+//DB setup
+
+const { Pool } = require('pg');
+const connectionString = process.env.DATABASE_URL;
+console.log("Connection string is: " + connectionString);
+const pool = new Pool({connectionString: connectionString});
+
+//Testing heroku db
+var sql = "SELECT * FROM notes";
+pool.query(sql, function(err, result) {  //pool is not recognized
+    // If an error occurred...
+    if (err) {
+        console.log("Error in query: ")
+        console.log(err);
+    }
+
+    // Log this to the console for debugging purposes.
+    console.log("Back from DB with result:");
+    //console.log(result.rows);
+
+});    
 
 app.use(express.static("public"));
 

@@ -7,12 +7,14 @@
   },
   "main": "muse_skill.js",
   "scripts": {
-    "start": "node muse_skill.js",
-    "test": "node test.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "dotenv": "^7.0.0",
     "ejs": "^2.5.6",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "pg": "^7.9.0"
   },
   "devDependencies": {
     "request": "^2.81.0",

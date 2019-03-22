@@ -1,15 +1,8 @@
 CREATE TABLE notes(note_id SERIAL PRIMARY KEY,
-	note_name VARCHAR(50) NOT NULL UNIQUE),
+	note_name VARCHAR(50) NOT NULL UNIQUE,
 	img_source VARCHAR(100) NOT NULL UNIQUE,
 	sound_source VARCHAR(100) UNIQUE);
 
---Just have this with the notes table??
-CREATE TABLE note_answers(answer_id SERIAL PRIMARY KEY,
-	answer_name VARCHAR(10) NOT NULL UNIQUE);
-
-
-
---SELECT * FROM song_info WHERE rating >= 4;
 
 INSERT INTO notes (note_name) VALUES ('C');
 INSERT INTO notes (note_name) VALUES ('C#/Db');
