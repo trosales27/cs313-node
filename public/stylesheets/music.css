@@ -1,6 +1,7 @@
 * {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
 ul {
@@ -31,6 +32,52 @@ ul {
     background-color: #111;
   }
 
+  li button {
+    font-size: 14px;
+    border-collapse: collapse;
+    border-color: #333;
+    background-color: #333;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li button:hover {
+    background-color: #111;
+    cursor: pointer;
+  }
+
   .right {
       float: right;
   }
+
+  /* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+#img {
+  /* This is for the sizing of the images */
+}
+
+#answers {
+  /* This is for the answer section */
+}
+

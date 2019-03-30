@@ -1,21 +1,55 @@
 CREATE TABLE notes(note_id SERIAL PRIMARY KEY,
 	note_name VARCHAR(50) NOT NULL UNIQUE,
-	img_source VARCHAR(100) NOT NULL UNIQUE,
-	sound_source VARCHAR(100) UNIQUE);
+	img_source TEXT NOT NULL UNIQUE,
+	sound_source TEXT UNIQUE);
+
+CREATE TABLE chords(chord_id SERIAL PRIMARY KEY,
+	chord_name VARCHAR(50) NOT NULL UNIQUE,
+	img_source TEXT NOT NULL UNIQUE,
+	sound_source TEXT UNIQUE);
+
+CREATE TABLE rhythms(rhythm_id SERIAL PRIMARY KEY,
+	rhythm_name VARCHAR(50) NOT NULL UNIQUE,
+	img_source TEXT NOT NULL UNIQUE,
+	sound_source TEXT UNIQUE);
 
 
-INSERT INTO notes (note_name) VALUES ('C');
-INSERT INTO notes (note_name) VALUES ('C#/Db');
-INSERT INTO notes (note_name) VALUES ('D');
-INSERT INTO notes (note_name) VALUES ('D#/Eb');
-INSERT INTO notes (note_name) VALUES ('E');
-INSERT INTO notes (note_name) VALUES ('F');
-INSERT INTO notes (note_name) VALUES ('F#/Gb');
-INSERT INTO notes (note_name) VALUES ('G');
-INSERT INTO notes (note_name) VALUES ('G#/Ab');
-INSERT INTO notes (note_name) VALUES ('A');
-INSERT INTO notes (note_name) VALUES ('A#/Bb');
-INSERT INTO notes (note_name) VALUES ('B');
+
+--NOTE: May need to add a ?ssh=True at the end of these?
+INSERT INTO notes (note_name, img_source) 
+VALUES ('C', 'https://previews.dropbox.com/p/thumb/AAZcGCCuIsj6xjZUysT5Dz2_PscR3ddRJAvSttAs5QKT6ouCuS8HYRYeg0cB6Q2dit8TCFfi7pvKxV6AqF56UTpw0jg3nGjMZlzT2t5ForUGLYMbZRdNW7bRtmB17yNHwKK9KfXtJ1_3Z9QMCaCH62EmcE8QvKWIJ95bqOq62h7ihpqlRy4LdFNc4bbZ6R2hHMHZq3sH-AKjfPXfyyttFJU7eHeunatvymJ7WXPu2bMD5BkQz8CmGJdNVj9qOBiUKUVLhT5YzQTs4uAdouzTztTxpYKraNEPj3ms5LRjletTCiUoEvpFdnBesMsXaS1PT6RZfmebqNXTdxihhNwbE2zQ/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('A', 'https://previews.dropbox.com/p/thumb/AAZYi3ZATZgQ8S926k59AEVDe10bohice7e3mlaxogQnUDTqhyDda9hGpcgs50QQleOhgpKMHUnkpR666qhxPH42HnsVCsAqMHMoiO-QmPIIeRSMp-ECUfWLGJ_PvCsNmYGo0uCBZh2qXNSl64Q7gzWEOCoLybLH1WSw4NpWSUBgRxJa0btLuezAXZRhukP9NSx3CNOPt3AWnnu_kxSdvf3Y1Fip3CCJgwMznXSaGkjGIIIJ9wPP-sJEP5OfPEOL0Tl_oatZEWbbBhXS0NAyqz6w8XG6-bbSHnBB-dzmgwJCSSUFL0fYFOdazcduIsASZsnNUGHqXrlPtBOne79XGtbF/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('Ab', 'https://previews.dropbox.com/p/thumb/AAaq6ENln800fB17v-Qnav9RMOg1dRQ993mnOGvMxxYb_ZDI3iGm6XLz6XjRqe5cv6udzhoKd3cT9WEQB4aaPkne3LMNy23r78WnoG5luTGmv8vq_2bYkNcVcVuY2IamXTFO_dh-O__Pg0crVta66S9igOWZZc4PDEKa9wOe2PET7P7nitP1Z2qCCS-_MkdUcQL7RLK_fsubHacR1TR0rMwMQCG5auSM6ElV1wPIVlFxSLbtTJdkRpRKx5gzeMt-8TiXZD64gNE4kJKIW1QRUVGI5mUUMChrp4h1RpPgqywelGNmnUesO2OOJYc1MaDODloNsuoPP5d85820a0TQmyiv/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('B', 'https://previews.dropbox.com/p/thumb/AAYh_YrFFsDIdagXb16iGy715Il6tf6oxgowFziENty5RC94mCcsqi0_MTG-qanp19vouIiKee7MMQzEaEAUHGDAZskykLi_lJ1JSUZhtU4QS_RpqQEc9Z4gOZjD2C1YwypZXkSHFfk683_OLdWbpCRfd5lEg8VAQnBJ5RHUqarlFoYCR5jCc-nmtb4x7EHU1jbibGy1pQPJ_P8a2LAaElUWkg6HGHYzQplFWuFkCLr4zy9RT3hrMOFL9l-xWSgAyWKm16jG3RjOnEXSbkGnIy0C_2OssSmYD4M6PpL_z29lyytQp3Y1dRI13aNU6GJ3-yX525Z84qMFyOR8H7k3mhiv/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('Bb', 'https://previews.dropbox.com/p/thumb/AAYFEerl0t3l5tB7R-_J69hhIs4IUdvyR02kBebomvYILZ5nmuYtgZrJAojvmKPDdi3pcTydpsve7ZEIoNKS84bunEnUl8b8lWISUnLpul-MHCp2da2lmK4w68GgLAXZV4VVge5WTJgWt_1-bIpGMRqpMZ5FTEg8bRAZQRBRMarTNubbU1nqDYz31r-E3Tg9yIOTJq8dSLJGU3wx0Mzv1ECmRw5TbtpR6nxxCDoB1QKMrmDTkMDdO5DGI_iL7c6GQuWtGlJTpJxpWYQagD1NCEvS6eEuribMQNzVCMp3MAerYOZbg9MpyUN9POlA7eSfAk0GYzPZgL9b5_bKYTNcOXW4/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('C#', 'https://previews.dropbox.com/p/thumb/AAakhWkMzYhU-BuDncAVrK5ysqwuW_ug1Tt7NiqFOHBzx7CZIVQI4ge_8dne7QtdWHnoebQzmMLZc9BMqT9r24Fovs4A6NLeT2PKlN5VqSxl7p1KWwbjfUZbPekXxZxfsAGm9DI8apqkSzV1poIL4EHkjbulHSQ1WYOkB3Q-oUDFju-D9j22O_rxylmBw6yR3qNMSX1JsvKEK4-QnWE2oaCYRY82BjcC2KGVxqpe-FybkdGnCPf7AXvgiudM7JTi6OnO22k_Hh9zkybS32MLaPkAEodMcPsawbg8c-IezuyKxdflFGXWYOk7ML2YR6ccX12j9dK4w-Ajen_oIeHfJdwR/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('C2', 'https://previews.dropbox.com/p/thumb/AAbmzP_5exWljFSfFWQv2N4rNEzWBAo02og_D4LT8nDSJiPQBjBhVvEjFwLscwH_YCHetN4q_7EG6og5cQciHOADECBDRfwCzvDPFRb9KN6TKtAz_E9hbTQz9jeKTxpmt-8HRUluUtE-h0862z2fgQbMVkEV0Mk2DokdTiovuW1CFo9BsvB9oS_mBVy8Msl2RlTmjeGMaCoD7jGCq5w-wCNiHYa6JqZf6XbamD5dLRNfSsvt4xSaedg3BhEsUFWpwe-NSMbpYgF2Yam8Al3dpuhWbx7N4_ggI4owaxiWEa108qNBiErNswVx6BxC8NFJq9OwXP06zkP6KAXFOW3dkTrr/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('Db', 'https://previews.dropbox.com/p/thumb/AAZVQN6QdeuYKok66u1M_PUQVcBScFch2U7hOIFORsOlbcBTiqWOptO074VQr0kyIE_8X5N2GlRZACuTpaghnqcJkfaltkLVAvgeZW5RLB-nfYg5IHOUYrjVacrTjKkjc5CO-Fv6CMW_7Lfy8eL-PoUBsHR6KuKX_rbrblyZV2CV1Hkx5YhdewaVPL5KQvgAhYEweGy-N4j_WI70HuS05gpvwrhWTlD_ptHxFl4WBJjbhoTH216pvbljLnkb9o0D8DTPoEr2PlpotFytIXWhOY20DBYQUi_FzdfWGVV92D2E30zbl6ACGUa7rADYTKvzypXO5BLRjn2SwM_5tYnZ-5CJ/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('E', 'https://previews.dropbox.com/p/thumb/AAY3_-ndFk-1Jq-YmA6soM496aeMVos8NJukU84F5hgiqW5_m5NcvZJ_ort7JxCVFlGNCp3i7coYuSGtq08jNbWxdV_QQYTFXe76ORflOI6Dzm8wQOnVW68zobx4-toMNOk-oUoA71fP-JLiZDPzhvYhsT423GXZynbEf8UsAyZvDhKlzV3a1LDWsDZdjQY7NtUsCZZNHAvltvG5z4f1uWYI9Jwv--sQVc4XdTwWZ0T4l1H8itlC66eGXlDwmXCA06wWnjY1ruJCwd6plv4Q8a0VXdaUmuJ1_j5l5lrWItJWd6vC0U7at_SQaeFbqVrgrfKd1dwUlPmVx0S95cu2CXao/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('Eb', 'https://previews.dropbox.com/p/thumb/AAY3m2_j7KWibQTMVdMDlzARuJLzxGIC4bW74XFUV6iWhmPJ7__YadMpyqqvxqYZS1f3W70B7AcVxwvKJUSm70xXvTLnq70B3FRKvLeIcySUTpd8bQNxvC2wjg3nASMws8skI1A3xcz277rv3c2G_Oj2SHC8eMQPA93hFbmwaT6BFufOlg86mj9qmw-7VMKYqFVG8lUXlJ1t-9m3PC7Ch-icIXsxZFFZuk8QQvkFuHOj4OsFUHpEu0SkGtFeWt8pzU1ExYxnTdURkhoXul4BiYaT78NLQgWIW0_P5LjJGfn6YN2ZB-nUm42dJoXcpULUAr0NpkI-alq3ILDiZmpgkyDi/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('F', 'https://previews.dropbox.com/p/thumb/AAbpPfiv2b7oHPMFqyAOK3iKVutgBpOWmrUD1LdluP_Se0Eq_32EVlTRatdsQ9nBOnfi1L7Q4to8Mj9e5MPZWrX4LuzgHYG3SaV7YUjXCe9ArMRKuaIeACtuEC-cUBKEhJE0LaBuvyvDchE9LF040ccIJIXTfty72SDZKvzLsnf4O4f31hbQWp90hA24r9M2AtbZVAik5hFKvuHdvBBS0Jt7DehIrXR0Pox4O6xLiaM1yAlJKep-5951-3Z3Zn8fkweBw68UEjKThHCVM8gH3evcwYkSu-UE7c_Rvgwe-UFizv0F37VtXlPrziRcEujq-iOgNdi3QU5XVyT6ddgIPLi5/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('F#', 'https://previews.dropbox.com/p/thumb/AAZ-xHGSaPLwtvNvvgc8KYA4GcPEZsoc0MTridlEu91LmTllDVzqC2aSqvYSQJWAikfAymRxjxjlHCwr1JIMXBpLfuT46zZ_NYejuWbSVIDF6LiAO6mTg1ROPyBKmTMMdiL-8o2SgqeR6fYBkAvTD3Nso_Om_RoGD6sN3QRb-88x7dSQayEWRmyky6UDW0z5llRHy44-0hND2LflkKz0NxNR2G1k-N7vivddYHBC3fpJYYvceQhNXpplKYAy02xan7Q92Zml_-XVmYW0arQBjcZNeBMkMxHUQG3XwX-dPH2k46x0I2-iBh_mHGL3ivYp4QWryogSzns77AlAkggn-aJb/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('G', 'https://previews.dropbox.com/p/thumb/AAank_Wt25rse_307qghxPYOLDxUYDR9CcSmeZf3cgswdQ6EH1E8bOYlAzhc5zqMs6gZl5rJckNCUwXirHJKyjrdgx9KgsqJVXAM2hF5vGfA8ARYdup1LG9RsE_FfJqZ3WZsmBeMjg00lij9A5Wi5dOYzmVY0xY59I2WoVkliaZKVQau2jz1yCj0zGE6bNkY_50i-UIWEq-LWYErU3s_MI1Oc21SkzQzhFPu_vj2Nxsg5k7X5mmA8gvGvlo9ykS4ct8jxbfadOT-8QSdSWNEUI6cc_RmACbWWh-7I2XQhLfGZGjv8jD8AWiVbL1pj-7eXGeU0DvA_rwDXE48m8d6MZ6S/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('G#', 'https://previews.dropbox.com/p/thumb/AAZ2-U-pd-Kc0r7-6eo8lcQM92F00y1-v3n2tDAn1H2iYLDOgyP2bPdcJu6_iqpy9-Bj_Xa79RXhB3vD5wKeAMFlmfsEjNjHSyzvZfTlqAdfK0fE0STDNSU0Gn53l2ARku4OM707Tyf2M_l5yG4Zob9Jhm9bJUytEisgahgCLkK0Ov2BDUdOXz6xggWXcBJp97WAYDUjg79JsHESQXfs-EwGLosAj2tLh9rqfopyBKr-WeYQUVyD8m906Peg9aynewoAlsCADsWkgKl4q9MCsDnr-cvhWnmXJmQI3deVJud8jMvM6AMeHsEI7sB7kWYxT39C68JLh4fBRRzMjORW5UfF/p.png?size_mode=5');
+INSERT INTO notes (note_name, img_source) 
+VALUES ('Gb', 'https://previews.dropbox.com/p/thumb/AAaJPfrOCiendUJGhUHbcP3CtfsfVBl2O-z5Zlz1viGdIKWICjlwu56OkAAvpi5_VHpFyx5x1AWZoU7j9jB9a7H4axF4Zk4Mjcr1a656UEFiRUM3DUfWZu23Z0Z1V9lw8ipEDhhNsRR00nLtCJQfGj3deo9NXIrcayeA4w550rLFzbx_wx4RijLO5Om4CaiLqIWhvhSwsu6OvvmAi1F45GrkVHV3hbJ_2_YOEy2YqbdKAFK119bdelKo0Xz5ZLyde9yc_e86cBpgDWwcSV47_uvEz_lQYaJE84lMq7XIhgsvROkJweT48aoJkKiM4hbC7rcU9IsOGx1_GngYD0KiZpZI/p.png?size_mode=5');
+
+
+INSERT INTO chords (chord_name, img_source) 
+VALUES ('Cmaj', 'https://previews.dropbox.com/p/thumb/AAYZo6ZNibe23WIrjlXRkAOrfrgeu-MlnKiHRctA3qzUSp17cacVf0odsLklaQQndjBFxLqXT41BVhEGSIVmXG4jyhmpPB7Zeq3SPwSxuYpvMwXadj6oVV93j-ZC--fpkXaNpkR4zfmXvZnRyGXt0v57rraEVRXzAZMXQ1iqTIw9YJeTLIzX4yad0PFaASBqfhAKhBUldrH0I60ApeeTf5SFB7nDfz7Jidnqcg9NDH53U4Qp3iGfEdnxnnUWL4r6np-3IbvitWBYLLwBR_eocu2lo66VZsJ4gZ3aXskKUoHMBErUY3WrGqMGzEesNcALZNJm2g8NpSWwsLx6sP2j6brK/p.png?size_mode=5');
 
 
 

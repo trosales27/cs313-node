@@ -6,7 +6,7 @@
     <title>Muse Skill</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/music.css">
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <h1>This is MuseSkill</h1>
@@ -14,20 +14,25 @@
     <!-- navbar -->
     <ul>
         <li><a class="active" href="#home">Home</a></li>
-        <li><a href="">Notes (Easy)</a></li>
-        <li><a href="">Rhythms</a></li>
-        <li><a href="">Chords</a></li>
-        <li class="right"><a href="">Contact Us</a></li>
-        <li class="right"><a href="">About</a></li>        
+        <li><button onclick="getNotes()">Notes (Easy)</button></li>
+        <li><button onclick="getChords()">Chords (Hard)</button></li>
+        <li class="right"><button onclick="getContact()">Contact Us</button></li>
+        <li class="right"><button onclick="getAbout()">About</button></li>        
       </ul>
 
       <br><br><br><br><br>
-      <button>Get Images</button>
-      <!-- Button will pull just a link for the images for now -->
-      <div class="image">Music image will go here</div>
-
-      <button>Get Answers</button>
-      <div class="answers">Multiple choice answers will go here</div>
+      <div class="row">
+          <div class="side">
+              <div id="img">
+                  Image goes here
+              </div>
+          </div>
+          <div class="main">
+              <div id="answers">
+                  Answers go here
+              </div>
+          </div>
+      </div>
     
 </body>
 </html>
