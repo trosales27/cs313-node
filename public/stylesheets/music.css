@@ -53,10 +53,15 @@ ul {
       float: right;
   }
 
+  .body {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
   /* Column container */
 .row {  
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 /* Sidebar/left column */
@@ -69,7 +74,7 @@ ul {
 /* Main column */
 .main {
   flex: 70%;
-  background-color: white;
+  background-color: #c5c5c5;
   padding: 20px;
 }
 
