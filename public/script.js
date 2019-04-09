@@ -113,20 +113,15 @@ function checkAnswer() {
   else {
     console.log("incorrect!");
     document.getElementById("incorrect").style.visibility = "visible";
-    
   }
-  //const answer = document.getElementById("answer");
-  //console.log("Selected answer is: " + answer);
 
-  // Take the inputs from the question and check if it's correct, may handle this part on server side
-  //Handle necessary animates to keep track of/let user know how they did.
-  //Also make ajax request to load new question until the 5th question is over. 
-  //Can also make sure that the next note doesn't repeat, so keep an array of notes done 
 }
 
 function nextQuestion() {
-  //load the next question
-  console.log("pull up the next q");
+console.log("pull up the next question");
+document.getElementById("correct").style.visibility= "hidden";
+document.getElementById("incorrect").style.visibility= "hidden";
+getNotes();
 }
 
 // GOALS: Checking answers/showing corect answers
