@@ -15,8 +15,8 @@
     <ul>
         <!-- <li><a class="active" href="#home">Home</a></li> -->
         <li><a class="active" href="/home">Home</a></li>
-        <li><button onclick="getNotes()">Notes</button></li>
-        <li><a href="/muse_skill_chords">Chords</a></li>
+        <li><a href="/muse_skill">Notes</a></li>
+        <li><button onclick="getChords()">Chords</button></li>
         <li class="right"><button onclick="getContact()">Contact Us</button></li>
         <li class="right"><button onclick="getAbout()">About</button></li>        
       </ul>
@@ -25,7 +25,7 @@
       <div class="body">
         <div class="row">
             <div class="side">
-                What note is this?<br> <!--Make this invisible unitl button is clicked? -->
+                What chord is this?<br> <!--Make this invisible unitl button is clicked? -->
                 <img id="img" src="">
                 <div id="audio" src=""></div>
             </div>
@@ -36,7 +36,7 @@
         <p id="correct">Correct!</p>
         <p id="incorrect">Incorrect!</p>
         <button onclick="checkAnswer()">Submit</button>
-        <button class="button" name="submitButton" onclick="nextQuestion()">Next Question</button>
+        <button class="button" name="submitButton" onclick="nextChordQuestion()">Next Question</button>
 
     
 </body>

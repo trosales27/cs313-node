@@ -52,6 +52,12 @@ app.get("/muse_skill", function(req, res) {
     res.render("pages/muse_skill");
 });
 
+app.get("/muse_skill_chords", function(req, res) {
+    console.log("Received a request for muse_skill_chords");
+
+    res.render("pages/muse_skill_chords");
+});
+
 // Set up handlers
 app.get("/getNote", getNoteHandler);
 app.get("/getChord", getChordHandler);
@@ -74,7 +80,18 @@ function getNoteHandler(req, res) {
 
 // Controller
 function getChordHandler(req, res) {
+    console.log("received request for getChordHandler");
+    console.log("id is " + req.query.id);
+    qry = "SELECT chord_name, img_source, sound_source FROM chords WHERE chord_id = " + req.query.id;
+    
+    pool.query(qry, (err, data) => {
+        if (err) {
+            throw err;
+        }
 
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(data.rows[0]));
+    });
 }
 
 

@@ -6,7 +6,7 @@ CREATE TABLE notes(note_id SERIAL PRIMARY KEY,
 CREATE TABLE chords(chord_id SERIAL PRIMARY KEY,
 	chord_name VARCHAR(50) NOT NULL UNIQUE,
 	img_source TEXT NOT NULL UNIQUE,
-	sound_source TEXT UNIQUE);
+	sound_source TEXT);
 
 CREATE TABLE rhythms(rhythm_id SERIAL PRIMARY KEY,
 	rhythm_name VARCHAR(50) NOT NULL UNIQUE,
@@ -70,12 +70,26 @@ VALUES ('D', 'https://previews.dropbox.com/p/thumb/AAYol43D8cqFZtLeSrO_mbVVR7hg5
 
 -- Deleted the note C2 for now, so no repeating notes have been implemented
 
-INSERT INTO chords (chord_name, img_source) 
-VALUES ('Cmaj', 'https://previews.dropbox.com/p/thumb/AAYZo6ZNibe23WIrjlXRkAOrfrgeu-MlnKiHRctA3qzUSp17cacVf0odsLklaQQndjBFxLqXT41BVhEGSIVmXG4jyhmpPB7Zeq3SPwSxuYpvMwXadj6oVV93j-ZC--fpkXaNpkR4zfmXvZnRyGXt0v57rraEVRXzAZMXQ1iqTIw9YJeTLIzX4yad0PFaASBqfhAKhBUldrH0I60ApeeTf5SFB7nDfz7Jidnqcg9NDH53U4Qp3iGfEdnxnnUWL4r6np-3IbvitWBYLLwBR_eocu2lo66VZsJ4gZ3aXskKUoHMBErUY3WrGqMGzEesNcALZNJm2g8NpSWwsLx6sP2j6brK/p.png?size_mode=5');
+INSERT INTO chords (chord_name, img_source, sound_source) 
+VALUES ('C', 'https://previews.dropbox.com/p/thumb/AAZIwIFKNkT4S_fYKC6p4zJfPV2gR4xgoGCKN84LVj1xnQ6eayeSWIJRJZiCDFWKbmDFw7XZ8BZxPTPnZlhvnYAPFPUvuQ7YRqmPpgnpfsSy_1aUGpc1BPzknT26hyoQw8Ot2_hkT_DH1aDHthyfcGQzpBvy0cjTkc_uC5_Y_Ol5h186Q5rcQQcnHYDqUKuMge55Nr2T0rhrqeFB3McLLKhZWvULvLUYOdphXKiquoR57tPltb-5H_9F8G-EOvI5ptOlEfE7zWWk_cPnRcPUDx6eF9kJ9Jwnlpxov9YD9kyr08dGjnrG3o1cBB-r2uXRJRV37ViNUYtlAG7tiCabcpu342PDbx4ALNbK6Cghq0ThekJA6oRrvGv5qCMUUfYB24qOLJjZh0lcWl55A_vpUqTE6_hoU3Hoc_UZaNzLMoSIQA/p.png?size_mode=5', 
+	'https://dl.dropbox.com/s/kzlgf02ult8arbi/chord_c.m4a?dl=0');
+INSERT INTO chords (chord_name, img_source, sound_source) 
+VALUES ('C7', 'https://previews.dropbox.com/p/thumb/AAbyb2JjyYF60C3D4nyI5rR6_3eDWJkRLJS6itYy_sDZuBKc4TPDnolXq8JRbIOfAZp6N3_MQHOb-LAAzCdAcs0SlbxTvcPMBO6rlUyyhH9PqTzEkiaD_qG9AN-OlBhkn2JayU9uClzKYqrxhtQhgXXTb6GU_ViRcVAujwtxgInbUkBa2gtnCtktYtxoD71kVaRa1kt9_hh1cvP6Bo5ArpVzUxt2_-W2imCnSQYwsfYCVOtH8vjQ-IAIlQWGG_CpfoxNZ6pmHF45bpE0qIvHEL079gD-OG71LqfgyRXS-oMsyYIsbLIBgtu7aQmv1MTnT_mDyv625455e6ZmmkwI4tdLwXnjNCfOYn19OffhkCDIdEJZ4p-66hMkTtQBstV79-ZyGo3g-duL64UClD2OAMnqGGCw16PxPOeaao-3f3yftA/p.png?size_mode=5',
+	'https://dl.dropbox.com/s/4l1palpqsavyvl5/chord_c7.m4a?dl=0');
+INSERT INTO chords (chord_name, img_source, sound_source) 
+VALUES ('Cdim', 'https://previews.dropbox.com/p/thumb/AAYI9l2tx1IRajvSSx2Z4dLN_HIFGoa8KLKrb6rtxYLNKLC3c9nT_vNiFCPN2Euykamfzr3aCKmAMrMHwOGudai68mZBi2Tg4-N05-pwipyGspmgFZoMhJHeu1rs1Wljq6iDneGEb8hRyVDCh49vKAfCN8dqoNLKY1AKAiXVLy3KTfjojvV0SpSsA8H2t0Azpt1shJnhXQp5D6HgCBIgq3H4WJlvahNMBxv4Qa5aY_2yGOBO4UPgcZDBD68JvQ1EeypZ5VeYUwsls_7lWmJMgyIw2SnD-u-RfJ8qeBhkzNBFt4lWHCOq38V9aTN7aMVjIoy8dURkeWLzxhyO_Rm6NbSNZGjvQDLLjk3KfmGMeKXRUxkLYao-quqBdko-W5nSyRYRmURmwK-FHyqWPyWSTVvti4FSgNVdO6J1DK-UAUQG7w/p.png?size_mode=5',
+	'https://dl.dropbox.com/s/yrlkv3htaz01omu/chord_cdim.m4a?dl=0');
+INSERT INTO chords (chord_name, img_source, sound_source) 
+VALUES ('Cdim7', 'https://previews.dropbox.com/p/thumb/AAbDcSYBMiq7R1h3peHShhpFpOLpPqNgcDExsUv42mUAZjylJRkF0FSciXeu0sXjbVKYa0LgSpbZCUQFDuinqZPBEf8H0buWTKxL9cYub-r6V9Z-l-UVg-4ufQkSE_P9_W_jbB3-PxZgmj_b2U2Gud3HbNOtZeIjO60LcthWBlnSFkQUhNelQ9qjWn3WAxu7KEiirgQSrcd1jPqIa9p1G_SAYPEWYo9a1clFZTACoFiAO4uvL2-XKYmVDRXHITIaAEgZUHyIkf5a_ffRAhV6bOOv9JBlHCKXmVSoMbOt3g3NDhS-4DLz-m2lADXydV3eRP7yzmrfnYeTaxjnHpwQAj8NTp1OSSqrWaWIEOZrIP08pbu3s_JvSfCaHYOlDnL2RdNDvQXT1C9V6emvh4V_oEnJSd5ZwWOVvAvAg4T85181Dw/p.png?size_mode=5', 
+	'https://dl.dropbox.com/s/jkn4522rcp4qraq/chord_cdim7.m4a?dl=0');
+INSERT INTO chords (chord_name, img_source, sound_source) 
+VALUES ('Cmaj7', 'https://previews.dropbox.com/p/thumb/AAbfe0FsvO8jjkAGJVZZZQiO7VISzAU_88FlDzsP28xsEKpSZ5vLaS-KMS-pytqZKwVntDfZhth5K4SjzIQwfAG4JzQJO4ztN7eFdGKRPp3UBMMs8Scb47N-vnGj2eLngK1gRCffBYReYHfekw2cDH_YUtwrEQ4DNHZG5ydOxGeNau-YnzOkTFY0cGyzHefUkzCwoRb1JllwD7KrVhNOFcSwGmCmGzkZHlnACksQ2mWYoayEPOaP2327lqhcimFseZa7z5UHYLNtFj4xh5kN97DsVuua7BdWv6DhMVfgsm9_sK75XTrKeqC3dId5ysFkqhazqMr5EjOwfPsQb2trdFC1TOPhVeDLeYalyrY6INPdnZRxu6IpaFDcwnjOVZrLRXkCvM0UTfQygmmyRYT552NCAQRf19hFrioBcJzZg81smA/p.png?size_mode=5', 
+	'https://dl.dropbox.com/s/n899iqh6texxzfi/chord_cmaj7.m4a?dl=0');
+INSERT INTO chords (chord_name, img_source, sound_source) 
+VALUES ('Cmin7', 'https://previews.dropbox.com/p/thumb/AAYKyaRcdDkWoVPD9MpuL2vovtKAe_CV7oUHcirObU7XwG9SvUjcRRN9p6Hk9cAwCHTU2iSi5JyDvIlOURI_L7qju3Q55f1AG-KAsiezgndTFOL7jLHYoxwHyCq8hgMuSw7tKK_Azbi7N8k7w5RZ5ep6SMe0gV3KDuUc9UF05IgFmgaFQv0qLFL9naFowI8XMZry02FuMy9pX4P9zgIG9-qs0Dv_k53tqEr_MUpSc7B1HMW15dS1GkZc5FzbwBNQa5BmHjnA5DJtzWzvPJvCLvLSPfjpR9hMDUCC2M5TcLbu_Z3UEKNebzMlWqgkMsmIGgJXbNdqKHbiMlHzlqpWXpVD8zsPkYqX5qzfB5z0dOVWXM08Ocp3Oofm0lhtDoy8oIMWmNTFwzHFUaf35fUW36BhxP-DCBJbakW1dVmwE0Q7bw/p.png?size_mode=5', 
+	'https://dl.dropbox.com/s/yfbfoinn0ljc12w/chord_cmin7.m4a?dl=0');
 
-UPDATE notes SET sound_source = 'https://dl.dropbox.com/s/hofsgqtrzz5uu98/note_A%23%3ABb_audio.m4a?dl=0'
-WHERE note_name = 'A#' 
-OR note_name = 'Bb';
+
 
 
 --Joining tables together

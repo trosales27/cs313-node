@@ -65,8 +65,6 @@ function getRequest(url, callback) {
       document.getElementById("answers").innerHTML = "<p>Answer here: </p><br>" + answers;
       
     });
-    
-
   }
 
   // Pulls the audio source file and plays it when clicked
@@ -135,6 +133,82 @@ document.getElementById("correct").style.visibility= "hidden";
 document.getElementById("incorrect").style.visibility= "hidden";
 getNotes();
 }
+
+// Reloads the page with the next question
+function nextChordQuestion() {
+  console.log("pull up the next question");
+  document.getElementById("correct").style.visibility= "hidden";
+  document.getElementById("incorrect").style.visibility= "hidden";
+  getChords();
+  }
+
+
+
+
+
+function getChords() {
+  console.log("Reqeust for getNotes");
+  //set the id to pull random note.
+  id = Math.floor((Math.random() * 6)); //random number from 0-6, 1 for each chord
+
+  getRequest("/getChord?id=" + id, (data) => {
+    //What to do with the json goes here
+    const chord_name = data.chord_name;
+    const img = data.img_source;
+    const sound = data.sound_source;
+    document.getElementById("img").src = img;
+
+    //  This finally works!!!
+    document.getElementById("audio").src = sound;
+    let audioButton = "<button onclick='playAudio()'>Hear it!</button>";
+    document.getElementById("audio").innerHTML = audioButton;
+
+    // Random note/number generator
+    let allChords = ["C","Cmaj7","C7","Cmin7","Cdim","Cdim7"];
+    let chords = [];
+
+    // Fill an array with 4 unique chords one of which has to be the correct one.
+    for (var i = 0; i < 4; i++) {
+      //This will randomly put in the correct note into the array
+      if ((chords.indexOf(chord_name) == -1) && (chords.length == 3 || (Math.floor(Math.random() * 3) == 0))) { 
+        chords[i] = chord_name; 
+      }
+      else { 
+        isGood = false;
+        while (isGood == false) {
+          var temp = get_rand_chords(chords, allChords, chord_name); 
+          if (!in_array(temp, chords)) { 
+            isGood = true; 
+            chords[i] = temp;
+          }
+        }
+      }
+    }
+
+    // Fill out the form to be displayed on the front end
+    let answers = "<form>";
+    for (var i = 0; i < 4; i++) {
+      answers += "<input type='radio' name='answer' id='answer" + i + "' value=" + chords[i] + ">" + chords[i] + "<br>";
+    }
+    //console.log(answers);
+    answers += "<input type='hidden' name='correct_answer' id='correct_answer' value=" + chord_name + ">";
+    document.getElementById("answers").innerHTML = "<p>Answer here: </p><br>" + answers;
+  });
+}
+
+function get_rand_chords(chords, allChords, chord_name) {
+  //random number within array size
+  // Random Num formula: Math.floor(Math.random() * (max - min + 1)) + min;
+  var randomChord = allChords[Math.floor(Math.random() * 6)]; 
+
+  //Check to make sure the random note is not the correct answer
+  while (randomChord == chord_name) { randomChord = allChords[Math.floor(Math.random() * 6)]; }
+  return randomChord;
+}
+
+
+
+
 
 
 
