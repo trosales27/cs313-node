@@ -58,6 +58,18 @@ app.get("/muse_skill_chords", function(req, res) {
     res.render("pages/muse_skill_chords");
 });
 
+app.get("/about", function(req, res) {
+    console.log("Received a request for about");
+
+    res.render("pages/about");
+});
+
+app.get("/contact", function(req, res) {
+    console.log("Received a request for contact");
+
+    res.render("pages/contact");
+});
+
 // Set up handlers
 app.get("/getNote", getNoteHandler);
 app.get("/getChord", getChordHandler);
