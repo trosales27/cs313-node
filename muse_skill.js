@@ -1,6 +1,9 @@
 var express = require("express");
 require('dotenv').config();
 
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 var app = express();
 const port = process.env.PORT || 5000;
 
@@ -67,7 +70,6 @@ function getNoteHandler(req, res) {
 function getChordHandler(req, res) {
 
 }
-
 
 
 app.listen(port, function() {

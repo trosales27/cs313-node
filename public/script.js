@@ -19,7 +19,7 @@ function getRequest(url, callback) {
   function getNotes() {
     console.log("Reqeust for getNotes");
     //set the id to pull random note.
-    id = Math.floor((Math.random() * 10) + 5); //random number from 1-15 1 for each note
+    id = Math.floor((Math.random() * 10) + 5); //random number from 1-15, 1 for each note
 
     getRequest("/getNote?id=" + id, (data) => {
       //What to do with the json goes here
@@ -32,11 +32,9 @@ function getRequest(url, callback) {
 
       // Random note/number generator
       let allNotes = ["A","B","C","D","E","F","G","Ab","A#","Gb","G#","Bb","F#","Eb","Db","D#","C#"];
-      //let gen_nums = [];
       let notes = [];
 
       // Fill an array with 4 unique notes, one of which has to be the correct one.
-      console.log("Before for loop");
       for (var i = 0; i < 4; i++) {
         //This will randomly put in the correct note into the array
         if ((notes.indexOf(note_name) == -1) && (notes.length == 3 || (Math.floor(Math.random() * 3) == 0))) { 
@@ -57,9 +55,11 @@ function getRequest(url, callback) {
       // Fill out the form to be displayed on the front end
       let answers = "<form>";
       for (var i = 0; i < 4; i++) {
-        answers += "<input type='radio' name='answer' value=" + notes[i] + ">" + notes[i] + "<br>";
+        answers += "<input type='radio' name='answer' id='answer" + i + "' value=" + notes[i] + ">" + notes[i] + "<br>";
       }
-      answers += "</form><button onclick='checkAnswer()'>Submit</button>";
+      //console.log(answers);
+      answers += "<input type='hidden' name='correct_answer' id='correct_answer' value=" + note_name + ">";
+      //answers += "<button onclick='checkAnswer()'>Submit</button></form>";
 
       document.getElementById("answers").innerHTML = "<p>Answer here: </p><br>" + answers;
     });
@@ -67,8 +67,6 @@ function getRequest(url, callback) {
 
   // Gets a random number that is not the correct answer.
   function get_rand(notes, allNotes, note_name) {
-    console.log("In get_rand");
-
     //random number within array size
     // Random Num formula: Math.floor(Math.random() * (max - min + 1)) + min;
     var randomNote = allNotes[Math.floor(Math.random() * 17)]; 
@@ -80,7 +78,6 @@ function getRequest(url, callback) {
 
   // Checks to make sure the random number is unique to the array of notes
 function in_array(temp, notes) {
-  console.log("In in_array");
   for (var i = 0; i < notes.length; i++) {
     if (temp == notes[i]) {
       return true;
@@ -90,14 +87,52 @@ function in_array(temp, notes) {
 }
 
 
+
 function checkAnswer() {
   console.log("Checking Answer!");
+
+  let answer = "";
+  if (document.getElementById("answer0").checked) { answer = document.getElementById("answer0").value; }
+  if (document.getElementById("answer1").checked) { answer = document.getElementById("answer1").value; }
+  if (document.getElementById("answer2").checked) { answer = document.getElementById("answer2").value; }
+  if (document.getElementById("answer3").checked) { answer = document.getElementById("answer3").value; }
+  const correct_answer = document.getElementById("correct_answer").value;
+  console.log("Answer is: " + answer);
+  console.log("Correct Ansert is: " + correct_answer);
+  document.getElementById("answer0").disabled = true;
+  document.getElementById("answer1").disabled = true;
+  document.getElementById("answer2").disabled = true;
+  document.getElementById("answer3").disabled = true;
+
+  if (answer == correct_answer) {
+    console.log("Correct!");
+    document.getElementById("correct").style.visibility = "visible";
+    
+  }
+
+  else {
+    console.log("incorrect!");
+    document.getElementById("incorrect").style.visibility = "visible";
+    
+  }
+  //const answer = document.getElementById("answer");
+  //console.log("Selected answer is: " + answer);
 
   // Take the inputs from the question and check if it's correct, may handle this part on server side
   //Handle necessary animates to keep track of/let user know how they did.
   //Also make ajax request to load new question until the 5th question is over. 
   //Can also make sure that the next note doesn't repeat, so keep an array of notes done 
 }
+
+function nextQuestion() {
+  //load the next question
+  console.log("pull up the next q");
+}
+
+// GOALS: Checking answers/showing corect answers
+//        - Audio files + chords
+//        - Populate other tabs (about,h home, etc.) - front end stuff
+//        
 
 // TODO - Check for each answer, have some little indication for right and wrong answers
 //      -  Store each to display score after 5, havea button to retry and a button to go home

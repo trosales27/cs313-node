@@ -86,3 +86,19 @@ ul {
   /* This is for the answer section */
 }
 
+.button {
+  /* visibility: hidden; */
+}
+
+#correct {
+  visibility: hidden;
+  font-weight: bold;
+  color: rgb(46, 190, 41)
+}
+
+#incorrect {
+  visibility: hidden;
+  font-weight: bold;
+  color: rgb(231, 7, 7)
+}
+
