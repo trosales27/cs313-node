@@ -40,6 +40,12 @@ app.get("/", function(req, res) {
 	res.end();
 });
 
+app.get("/home", function(req, res) {
+    console.log("home screen");
+
+    res.render("pages/home");
+});
+
 app.get("/muse_skill", function(req, res) {
     console.log("Received a request for muse_skill");
 
@@ -54,7 +60,7 @@ app.get("/getChord", getChordHandler);
 function getNoteHandler(req, res) {
     console.log("received request for getNoteHandler");
     console.log("id is " + req.query.id);
-    qry = "SELECT note_name, img_source FROM notes WHERE note_id = " + req.query.id;
+    qry = "SELECT note_name, img_source, sound_source FROM notes WHERE note_id = " + req.query.id;
     
     pool.query(qry, (err, data) => {
         if (err) {

@@ -23,12 +23,15 @@ function getRequest(url, callback) {
 
     getRequest("/getNote?id=" + id, (data) => {
       //What to do with the json goes here
-      console.log(data);
       const note_name = data.note_name;
       const img = data.img_source;
-      console.log(note_name);
-      console.log(img);
+      const sound = data.sound_source;
       document.getElementById("img").src = img;
+
+      //  This finally works!!!
+      document.getElementById("audio").src = sound;
+      let audioButton = "<button onclick='playAudio()'>Hear it!</button>";
+      document.getElementById("audio").innerHTML = audioButton;
 
       // Random note/number generator
       let allNotes = ["A","B","C","D","E","F","G","Ab","A#","Gb","G#","Bb","F#","Eb","Db","D#","C#"];
@@ -59,10 +62,19 @@ function getRequest(url, callback) {
       }
       //console.log(answers);
       answers += "<input type='hidden' name='correct_answer' id='correct_answer' value=" + note_name + ">";
-      //answers += "<button onclick='checkAnswer()'>Submit</button></form>";
-
       document.getElementById("answers").innerHTML = "<p>Answer here: </p><br>" + answers;
+      
     });
+    
+
+  }
+
+  // Pulls the audio source file and plays it when clicked
+  function playAudio() {
+    var sound = document.getElementById("audio").src;
+    // console.log("Sound is: " + sound);
+    var audio = new Audio(sound);
+    audio.play();
   }
 
   // Gets a random number that is not the correct answer.
@@ -86,8 +98,7 @@ function in_array(temp, notes) {
   }
 }
 
-
-
+// Checks which answer was submitted and displays a correct/incorrect message
 function checkAnswer() {
   console.log("Checking Answer!");
 
@@ -117,6 +128,7 @@ function checkAnswer() {
 
 }
 
+// Reloads the page with the next question
 function nextQuestion() {
 console.log("pull up the next question");
 document.getElementById("correct").style.visibility= "hidden";
@@ -124,8 +136,10 @@ document.getElementById("incorrect").style.visibility= "hidden";
 getNotes();
 }
 
-// GOALS: Checking answers/showing corect answers
-//        - Audio files + chords
+
+
+// GOALS:
+//        - Chords
 //        - Populate other tabs (about,h home, etc.) - front end stuff
 //        
 
